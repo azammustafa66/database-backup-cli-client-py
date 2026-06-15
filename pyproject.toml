@@ -1,0 +1,27 @@
+[project]
+name = "database-backup-cli-client-py"
+version = "0.1.0"
+description = "Interactive CLI to back up and restore MongoDB and MySQL databases"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "questionary>=2.0.1",
+    "pymongo>=4.8.0",
+    "psycopg[binary]>=3.2.0",
+    "isort>=8.0.1",
+]
+
+[project.scripts]
+db-backup = "main:main"
+
+[dependency-groups]
+dev = [
+    "ruff>=0.15.17",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+include = ["main.py", "src"]
